@@ -1,5 +1,5 @@
 <?php
-
+//this is for testing only
 if(!isset($_SESSION)) {
     session_start();
 }
