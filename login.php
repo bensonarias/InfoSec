@@ -1,13 +1,15 @@
 <?php
     
-        //for error messages
-        $loginErrorMsg = "";
+//for error messages
+ $loginErrorMsg = "";
 
 if(!isset($_SESSION)) {
     session_start();
 }
+
 include_once "connections/connection.php";
 include "validation/validation.php";
+include "logs/logging.php";
 
 $con = connection();
 
@@ -28,6 +30,7 @@ if(isset($_POST['login'])) {
         echo header("Location: home.php");    
     } else {
         $loginErrorMsg = "Invalid username and/or password! Please try again!";
+        logging("ERROR","Invalid username or password");
     }
     $con->close();
 }
